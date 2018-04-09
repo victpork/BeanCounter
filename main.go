@@ -85,6 +85,11 @@ func handleTelegramMsg(update tgbotapi.Update) {
 		if strings.ToLower(strings.TrimSpace(amt)) == "cancel" {
 			return
 		}
+		// Trim text after space if there's one
+		spaceIdx := strings.Index(amt, " ")
+		if spaceIdx >= 0 {
+			amt = amt[:spaceIdx]
+		}
 		if _, err := strconv.ParseFloat(amt, 32); len(amt) == 0 || err != nil {
 			msg := tgbotapi.NewMessage(chatID, "Don't know what you're talking. Try again, or say \"cancel\" to cancel.")
 			msg.ReplyToMessageID = update.Message.MessageID
@@ -121,8 +126,8 @@ func handleTelegramMsg(update tgbotapi.Update) {
 	}
 	switch cmdText {
 	case "/add":
-		if _, err := strconv.ParseFloat(args, 32); len(args) == 0 || err != nil {
-			// Force reply from user if cannot parse correct float from argument
+		if len(args) == 0 {
+			// Force reply from user if no argument detected
 			msg := tgbotapi.NewMessage(chatID, "How much?")
 			msg.ReplyToMessageID = update.Message.MessageID
 			msg.ReplyMarkup = tgbotapi.ForceReply{
@@ -131,6 +136,17 @@ func handleTelegramMsg(update tgbotapi.Update) {
 			}
 			bot.Send(msg)
 			return
+		}
+		// Trim everything after space
+		spaceIdx = strings.Index(args, " ")
+		if spaceIdx >= 0 {
+			args = args[:spaceIdx]
+		}
+		if _, err := strconv.ParseFloat(args, 32); err != nil {
+			err = SendMsg(chatID, "Don't understand, please try again.")
+			if err != nil {
+				log.Fatal(err)
+			}
 		}
 		newBal, err := beancount.UpdateBalance(db, chatID, args)
 		if err != nil {
