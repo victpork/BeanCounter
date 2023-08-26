@@ -14,8 +14,8 @@ import (
 	"github.com/aws/aws-sdk-go-v2/aws/external"
 	"github.com/aws/aws-sdk-go-v2/service/dynamodb"
 	"github.com/aws/aws-sdk-go-v2/service/kms"
-	"github.com/go-telegram-bot-api/telegram-bot-api"
-	"github.com/mkishere/beancount/beancount"
+	tgbotapi "github.com/go-telegram-bot-api/telegram-bot-api/v5"
+	"github.com/victpork/BeanCounter/beancount"
 )
 
 var (
