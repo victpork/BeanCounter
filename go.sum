@@ -1,5 +1,7 @@
 github.com/aws/aws-lambda-go v1.1.0 h1:zbO0xouM/0LZ2VvS8gvFroffil6YbsL6CW36I9RlP98=
 github.com/aws/aws-lambda-go v1.1.0/go.mod h1:zUsUQhAUjYzR8AuduJPCfhBuKWUaDbQiPOG+ouzmE1A=
+github.com/aws/aws-lambda-go v1.41.0 h1:l/5fyVb6Ud9uYd411xdHZzSf2n86TakxzpvIoz7l+3Y=
+github.com/aws/aws-lambda-go v1.41.0/go.mod h1:jwFe2KmMsHmffA1X2R09hH6lFzJQxzI8qK17ewzbQMM=
 github.com/aws/aws-sdk-go-v2 v2.0.0-preview.3+incompatible h1:HoPDnq+Q3xlMBx0gL+mph+kclclPv//f2rLgPaS+4uw=
 github.com/aws/aws-sdk-go-v2 v2.0.0-preview.3+incompatible/go.mod h1:5DmdJpM48aUShwAgzBfZDXP+O5nH9IYDqzpovC7q9Y4=
 github.com/davecgh/go-spew v1.1.1 h1:vj9j/u1bqnvCEfJOwUhtlOARqs3+rkHYY13jYWTU97c=
